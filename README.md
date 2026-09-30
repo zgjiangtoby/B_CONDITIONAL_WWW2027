@@ -1,8 +1,6 @@
-# B: paired conditional evidence readouts
+# Paired conditional evidence readouts
 
 This is the minimal source release for the paper's matched readout experiment: fit equal-parameter multiplicative and additive span heads on frozen encoder states and category probabilities, then compare correction and existing-reference effects. It does **not** train the base encoder/category model or reproduce the whole original training campaign from raw corpora.
-
-The repository contains code only. Supply your own authorized data, existing labels, fixed partitions and trained model. No data, partition maps, annotations, feature banks, predictions, aggregates, pretrained weights or fitted heads are distributed. The synthetic smoke check creates its inputs at runtime in memory and a temporary directory, then removes them. No new annotations, parent posts, reply relationships or conversation inputs are supported.
 
 ## Run
 
@@ -10,10 +8,10 @@ Python 3.11 is the tested environment. Install the two runtime dependencies in y
 
 ```bash
 python3 -m pip install -r requirements.txt
-bash run.sh smoke
+bash run.sh pilot
 ```
 
-For an existing environment, `PYTHON=/path/to/python bash run.sh smoke` selects its interpreter. The smoke check needs only a CPU and downloads nothing. Choose the appropriate PyTorch wheel for your machine; the original campaign used PyTorch 2.9.1 with CUDA 12.8 and NumPy 1.26.4.
+For an existing environment, `PYTHON=/path/to/python bash run.sh pilot` selects its interpreter. The pilot check needs only a CPU and downloads nothing. Choose the appropriate PyTorch wheel for your machine; the original campaign used PyTorch 2.9.1 with CUDA 12.8 and NumPy 1.26.4.
 
 For each dataset and each seed 17, 29, 43, 59, export the external feature banks described below, then run:
 
